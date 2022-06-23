@@ -48,7 +48,7 @@ type PromisedImport<C> = Promise<{default: C}>;
 type ComponentType = React.ComponentType<any>;
 
 // NOTE: makeLazyloadComponent is exported for use in the sentry.io (getsentry)
-// pirvate routing tree.
+// private routing tree.
 
 /**
  * Factory function to produce a component that will render the SafeLazyLoad
@@ -1856,6 +1856,6 @@ function buildRoutes() {
   return appRoutes;
 }
 
-// We load routes both when initlaizing the SDK (for routing integrations) and
+// We load routes both when initializing the SDK (for routing integrations) and
 // when the app renders Main. Memoize to avoid rebuilding the route tree.
 export const routes = memoize(buildRoutes);

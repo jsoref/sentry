@@ -49,7 +49,7 @@ export default function FirstEventFooter({
   const client = useApi();
 
   const getSecondaryCta = () => {
-    // if hasn't sent first event, allow skiping.
+    // if hasn't sent first event, allow skipping.
     // if last, no secondary cta
     if (!hasFirstEvent && !isLast) {
       return <Button onClick={onClickSetupLater}>{t('Next Platform')}</Button>;
@@ -99,7 +99,7 @@ export default function FirstEventFooter({
       return (
         <CreateSampleEventButton
           project={project}
-          source="targted-onboarding"
+          source="targeted-onboarding"
           priority="primary"
         >
           {t('View Sample Error')}

@@ -374,7 +374,7 @@ class QueryBuilderTest(TestCase):
             "array_join_measurements_key",
         )
         self.assertCountEqual(query.columns, [array_join_column, Function("count", [], "count")])
-        # make sure the the array join columns are present in gropuby
+        # make sure the the array join columns are present in groupby
         self.assertCountEqual(query.groupby, [array_join_column])
 
     def test_retention(self):
@@ -605,7 +605,7 @@ class QueryBuilderTest(TestCase):
             ],
         )
         # This query becomes something roughly like:
-        # field:a or (field:b or (event.type:transaciton or transaction: foo))
+        # field:a or (field:b or (event.type:transaction or transaction: foo))
         assert constants.QUERY_TIPS["CHAINED_OR"] in query.tips["query"]
 
         query = QueryBuilder(
@@ -2522,7 +2522,7 @@ class HistogramMetricQueryBuilderTest(MetricBuilderBaseTest):
         )
         snql_query = query.run_query("test_query")
         assert len(snql_query["data"]) == 1
-        # This data is intepolated via rebucket_histogram
+        # This data is interpolated via rebucket_histogram
         assert snql_query["data"][0]["histogram_transaction_duration"] == [
             (0.0, 100.0, 0),
             (100.0, 200.0, 2),
@@ -2553,7 +2553,7 @@ class HistogramMetricQueryBuilderTest(MetricBuilderBaseTest):
         )
         snql_query = query.run_query("test_query")
         assert len(snql_query["data"]) == 1
-        # This data is intepolated via rebucket_histogram
+        # This data is interpolated via rebucket_histogram
         assert snql_query["data"][0]["histogram_transaction_duration"] == [
             (0.0, 100.0, 10),
             (100.0, 200.0, 17),

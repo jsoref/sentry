@@ -1921,7 +1921,7 @@ class QueryIntegrationTest(SnubaTestCase, TestCase):
             [],
             "status not 'ok' and not 'already_exists'",
         )
-        run_query("!has:transaction.status", [], "status nonexistant")
+        run_query("!has:transaction.status", [], "status nonexistent")
 
     def test_error_handled_alias(self):
         data = load_data("android-ndk", timestamp=before_now(minutes=10))
@@ -2943,7 +2943,7 @@ class QueryIntegrationTest(SnubaTestCase, TestCase):
 
         data = result["data"]
         assert len(data) == 1
-        # because we're ording by `message`, and offset by 1, the message should be `hello2`
+        # because we're ordering by `message`, and offset by 1, the message should be `hello2`
         assert data[0]["message"] == "hello2"
 
     def test_reflective_types(self):

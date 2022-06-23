@@ -13,7 +13,7 @@ const recordAnalyticsFirstEvent = ({
   organization,
   project,
 }: {
-  key: 'first_event_recieved' | 'first_transaction_recieved';
+  key: 'first_event_received' | 'first_transaction_received';
   organization: Organization;
   project: Project;
 }) =>
@@ -118,7 +118,7 @@ class EventWaiter extends Component<EventWaiterProps, EventWaiterState> {
 
       // noinspection SpellCheckingInspection
       recordAnalyticsFirstEvent({
-        key: 'first_event_recieved',
+        key: 'first_event_received',
         organization,
         project,
       });
@@ -126,7 +126,7 @@ class EventWaiter extends Component<EventWaiterProps, EventWaiterState> {
       firstIssue = firstEvent;
       // noinspection SpellCheckingInspection
       recordAnalyticsFirstEvent({
-        key: 'first_transaction_recieved',
+        key: 'first_transaction_received',
         organization,
         project,
       });

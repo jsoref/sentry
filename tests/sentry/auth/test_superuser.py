@@ -47,7 +47,7 @@ class SuperuserTestCase(TestCase):
     def setUp(self):
         super().setUp()
         self.current_datetime = timezone.now()
-        self.default_token = "abcdefghjiklmnog"
+        self.default_token = "abcdefghijklmnop"
 
     def build_request(
         self,
@@ -233,7 +233,7 @@ class SuperuserTestCase(TestCase):
         assert superuser.is_active is False
         logger.warning.assert_any_call(
             "superuser.privileged_org_access_expired",
-            extra={"superuser_token": "abcdefghjiklmnog"},
+            extra={"superuser_token": "abcdefghijklmnop"},
         )
 
     @mock.patch("sentry.auth.superuser.logger")
@@ -362,7 +362,7 @@ class SuperuserTestCase(TestCase):
         assert is_active_superuser(request)
 
     @mock.patch("sentry.auth.superuser.logger")
-    def test_superuser_session_doesnt_needs_validatation_superuser_prompts(self, logger):
+    def test_superuser_session_doesnt_needs_validation_superuser_prompts(self, logger):
         user = User(is_superuser=True)
         request = self.make_request(user=user, method="PUT")
         superuser = Superuser(request, org_id=None)

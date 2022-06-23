@@ -222,7 +222,7 @@ export type RequestOptions = RequestCallbacks & {
   method?: APIRequestMethod;
   /**
    * Because of the async nature of API requests, errors will happen outside of
-   * the stack that initated the request. a preservedError can be passed to
+   * the stack that initiated the request. a preservedError can be passed to
    * coalesce the stacks together.
    */
   preservedError?: Error;
@@ -338,7 +338,7 @@ export class Client {
   }
 
   /**
-   * Initate a request to the backend API.
+   * Initiate a request to the backend API.
    *
    * Consider using `requestPromise` for the async Promise version of this method.
    */
@@ -354,7 +354,7 @@ export class Client {
     }
 
     // TODO(epurkhiser): Mimicking the old jQuery API, data could be a string /
-    // object for GET requets. jQuery just sticks it onto the URL as query
+    // object for GET requests. jQuery just sticks it onto the URL as query
     // parameters
     if (method === 'GET' && data) {
       const queryString = typeof data === 'string' ? data : qs.stringify(data);

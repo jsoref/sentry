@@ -26,11 +26,11 @@
 //      There is no English locale file as our locale strings are keyed using
 //      the English strings.
 //
-//   b. Call `initalizeApp`, which starts most everything else
+//   b. Call `initializeApp`, which starts most everything else
 //
 // 3. App initialization does the following...
 //
-//   a. Initialize the ConfigStore with clinet-config data.
+//   a. Initialize the ConfigStore with client-config data.
 //
 //   b. Setup the colorscheme event handlers, for matching the system
 //      colorscheme.
@@ -71,15 +71,15 @@
 // [1]: https://sentry.io/careers/
 
 async function app() {
-  // We won't need initalizeMainImport until we complete bootstrapping.
-  // Initaite the fetch, just don't await it until we need it.
-  const initalizeMainImport = import('sentry/bootstrap/initializeMain');
+  // We won't need initializeMainImport until we complete bootstrapping.
+  // Initiate the fetch, just don't await it until we need it.
+  const initializeMainImport = import('sentry/bootstrap/initializeMain');
   const bootstrapImport = import('sentry/bootstrap');
 
   const {bootstrap} = await bootstrapImport;
   const config = await bootstrap();
 
-  const {initializeMain} = await initalizeMainImport;
+  const {initializeMain} = await initializeMainImport;
   initializeMain(config);
 }
 

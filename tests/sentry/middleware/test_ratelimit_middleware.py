@@ -167,7 +167,7 @@ class RatelimitMiddlewareTest(TestCase):
         request.META["REMOTE_ADDR"] = None
         assert get_rate_limit_key(view, request, rate_limit_group, rate_limit_config) is None
 
-        # Test when IP addess is IPv6
+        # Test when IP address is IPv6
         request.META["REMOTE_ADDR"] = "684D:1111:222:3333:4444:5555:6:77"
         assert (
             get_rate_limit_key(view, request, rate_limit_group, rate_limit_config)
@@ -244,11 +244,11 @@ class TestGetRateLimitValue(TestCase):
         rate_limit_config = get_rate_limit_config(view.view_class)
 
         assert get_rate_limit_value("GET", "ip", rate_limit_config) == RateLimit(100, 5)
-        # get is not overriddent for user, hence we use the default
+        # get is not overridden for user, hence we use the default
         assert get_rate_limit_value(
             "GET", "user", rate_limit_config
         ) == get_default_rate_limits_for_group("default", category=RateLimitCategory.USER)
-        # get is not overriddent for IP, hence we use the default
+        # get is not overridden for IP, hence we use the default
         assert get_rate_limit_value(
             "POST", "ip", rate_limit_config
         ) == get_default_rate_limits_for_group("default", category=RateLimitCategory.IP)
@@ -400,7 +400,7 @@ class TestConcurrentRateLimiter(APITestCase):
             # dispatch more simultaneous requests to the endpoint than the concurrent limit
             for _ in range(CONCURRENT_RATE_LIMIT + 1):
                 # sleep a little in between each submission
-                # NOTE: This should not be necesary if the lua scripts are atomic
+                # NOTE: This should not be necessary if the lua scripts are atomic
                 # There is a test that does this with just the concurrent rate limiter
                 # (test_redis_concurrent.py) and it doesn't need the sleep in between.
                 # something about the test infra makes it so that if that sleep

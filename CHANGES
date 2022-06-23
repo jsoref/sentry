@@ -220,7 +220,7 @@ By: @edwardgou-sentry (#28699, #28827, #28745, #28637)
 - ref(integrations): Split up large file (#30786) by @mgaeta
 - ref(analytics): Analytics Refactor + Types (#30555) by @mgaeta
 - fix(teamStats): Fix link to alert details from triggered (#31124) by @scttcper
-- ref(sentry apps): Don't raise IgnoreableSentryAppError (#31033) by @ceorourke
+- ref(sentry apps): Don't raise IgnorableSentryAppError (#31033) by @ceorourke
 
 _Plus 2051 more_
 
@@ -724,7 +724,7 @@ Misc
 - Support for Google Cloud Storage as a storage backend.
 - A new Assistant to help onboard users.
 - Add count estimates to search results.
-- Superuser has been locked down significantlly with idle timeouts and secondary sessions.
+- Superuser has been locked down significantly with idle timeouts and secondary sessions.
 - 2FA can now be enforced for an organization.
 - Various performance around event processing to make up for all the added load we're forcing on
   ya'll. =)
@@ -800,7 +800,7 @@ v8.19
 
 - Hide project filter when there are no projects to list.
 - Added lookup methods to constants to get a unique `integration_id` for a given
-  event, and to get information (documention url, human readable name) from that id.
+  event, and to get information (documentation url, human readable name) from that id.
 
 Schema Changes
 ~~~~~~~~~~~~~~
@@ -974,7 +974,7 @@ v8.14.1
 -------
 
 - Fixed issues related to migrations failing to finish for 8.14
-- Fixed an issue where Release version names were erronously too restrictve.
+- Fixed an issue where Release version names were erroneously too restrictive.
 - Fixed an issue where "New Issues" counts would have all been 0 for releases created in 8.14.
 
 v8.14
@@ -1071,7 +1071,7 @@ v8.12
 - Added data migration to backfill legacy release data
 - Added data migration to backfill legacy commit data
 - Added data migration to backfill legacy release file and environment data
-- Allow gziped/deflated JavaScript artifacts to be uploaded through the API.
+- Allow gzipped/deflated JavaScript artifacts to be uploaded through the API.
 - Shared issue view no longer shows SDK.
 - Added ``activeSince`` to search (uses ``active_at``).
 - Added ``firstSeen`` to search (uses ``first_seen``).
@@ -1903,7 +1903,7 @@ Backwards Incompatible Changes
 - ``is_new`` in ``Plugin.post_process`` will **only** be set if the event is brand new.
 - Project-based URLs are changed to be organization scoped instead of team scoped.
 - Static assets are no longer bundled as part of the repository and are instead compiled during the sdist/installation phases (as needed). See installation notes for further information.
-- Graphs have been transitiong to ``sentry.tsdb`` (historical data is not preserved)
+- Graphs have been transitioning to ``sentry.tsdb`` (historical data is not preserved)
 - Workers must now also run ``celerybeat``. This can be done either via passing -B to worker, or by running another process: ``sentry celerybeat``.
 - Access Groups are now deprecated and will be removed in a version version.
 
